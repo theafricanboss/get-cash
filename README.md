@@ -1,7 +1,7 @@
-[![Issues]](https://github.com/theafricanboss/get-cash/issues)
-[![Social Media]](https://theafricanboss.com/social)
-
 <p align="center">
+
+[![Issues](https://img.shields.io/github/issues/theafricanboss/get-cash.svg?style=for-the-badge&logo=appveyor)](https://github.com/theafricanboss/get-cash/issues)
+
   <a href="https://theafricanboss.com/get-cash">
     <img src="images/get-cash-buttons-qr-codes.jpg" alt="Get Cash Logo" height="50" width="auto">
   </a>
@@ -22,15 +22,6 @@
   </p>
 </p>
 
-## Screenshots
-
-See screenshots below for visual details.
-
-<img src="images/get-cash-buttons-qr-codes.jpg" alt="Get Cash Logo" height="100" width="auto">
-<img src="images/get-cash-settings.jpg" alt="Get Cash Settings" height="450" width="auto">
-<img src="images/get-cash-shortcodes.jpg" alt="Get Cash Shortcodes" height="250" width="auto">
-
-
 ## PRO or customized version
 
 Please reach out to theafricanboss@gmail.com for a custom version of this plugin.
@@ -44,6 +35,14 @@ Here is [a demo for this plugin](https://theafricanboss.com/get-cash)
 This plugin displays a buton or QR code that sends users to your Cash App, Venmo, Paypal, etc.
 
 See the screenshots for visual details.
+
+## Screenshots
+
+See screenshots below for visual details.
+
+<img src="images/get-cash-buttons-qr-codes.jpg" alt="Get Cash Logo" height="100" width="auto">
+<img src="images/get-cash-settings.jpg" alt="Get Cash Settings" height="450" width="auto">
+<img src="images/get-cash-shortcodes.jpg" alt="Get Cash Shortcodes" height="250" width="auto">
 
 ## Installation
 
