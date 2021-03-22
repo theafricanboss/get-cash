@@ -1,15 +1,15 @@
-<p align="center">
-
 [![Issues](https://img.shields.io/github/issues/theafricanboss/get-cash.svg?style=for-the-badge&logo=appveyor)](https://github.com/theafricanboss/get-cash/issues)
+
+<p align="center">
 
   <a href="https://theafricanboss.com/get-cash">
     <img src="images/get-cash-buttons-qr-codes.jpg" alt="Get Cash Logo" height="50" width="auto">
   </a>
 
-  <h3 align="center">Get Cash</h3>
+  <h3 align="center">Get Cash on WordPress</h3>
 
   <p align="center">
-    Receive funds, tips, donations on WordPress via Cash App, Venmo, PayPal with a button or QR Code anywhere on your website
+    Receive funds, tips, donations on WordPress via Cash App, Venmo, PayPal with a button or QR Code anywhere on your WordPress website
     <br />
     <a href="https://theafricanboss.com/get-cash"><strong>Learn More »</strong></a>
     <br />
@@ -41,8 +41,8 @@ See the screenshots for visual details.
 See screenshots below for visual details.
 
 <img src="images/get-cash-buttons-qr-codes.jpg" alt="Get Cash Logo" height="100" width="auto">
-<img src="images/get-cash-settings.jpg" alt="Get Cash Settings" height="450" width="auto">
-<img src="images/get-cash-shortcodes.jpg" alt="Get Cash Shortcodes" height="250" width="auto">
+<img src="images/get-cash-shortcodes.jpg" alt="Get Cash Shortcodes" height="150" width="auto">
+<img src="images/get-cash-settings.jpg" alt="Get Cash Settings" width="80%" height="auto">
 
 ## Installation
 
