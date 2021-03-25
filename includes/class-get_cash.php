@@ -10,7 +10,22 @@ class get_cash {
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'get_cash_menu' ) );
 		add_action( 'admin_init', array( $this, 'get_cash_page_init' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'get_cash_admin_css' ) );
 	}
+
+	/**
+	 * Register and enqueue a custom stylesheet in the WordPress admin.
+	 */
+	public function get_cash_admin_css() { 
+		$currentScreen = get_current_screen();
+		if ($currentScreen->id == 'toplevel_page_get-cash' || $currentScreen->id == 'get-cash_page_get_cash_recommended_menu_page' || $currentScreen->id == 'get-cash_page_get_cash_help_menu_page' ) {
+			wp_register_style( 'bootstrap', GET_CASH_PLUGIN_DIR_URL . 'includes/css/bootstrap.min.css');
+			wp_enqueue_style( 'bootstrap' );
+		} else {
+			return;
+		}
+	}
+
 
 	public function get_cash_menu() {
 		
