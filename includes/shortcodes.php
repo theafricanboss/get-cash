@@ -1,7 +1,7 @@
 <?php if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-add_shortcode('cashapp' , 'display_cashapp_shortcode');
-function display_cashapp_shortcode($attr) {
+add_shortcode('cashapp' , 'get_cash_display_cashapp_shortcode');
+function get_cash_display_cashapp_shortcode($attr) {
     /* 
      * Retrieve values with:
      * $get_cash_options = get_option( 'get_cash_option_name' ); // Array of All Options
@@ -22,8 +22,8 @@ function display_cashapp_shortcode($attr) {
         '</a></p>';
 }
 
-add_shortcode('venmo' , 'display_venmo_shortcode');
-function display_venmo_shortcode($attr) {
+add_shortcode('venmo' , 'get_cash_display_venmo_shortcode');
+function get_cash_display_venmo_shortcode($attr) {
     $get_cash_options = get_option( 'get_cash_option_name' ); // Array of All Options
     
     if ( !isset( $get_cash_options['receiver_venmo'])) {$receiver_venmo = '';} else {$receiver_venmo = $get_cash_options['receiver_venmo'];}
@@ -40,8 +40,8 @@ function display_venmo_shortcode($attr) {
     
 }
 
-add_shortcode('paypal' , 'display_paypal_shortcode');
-function display_paypal_shortcode($attr) {
+add_shortcode('paypal' , 'get_cash_display_paypal_shortcode');
+function get_cash_display_paypal_shortcode($attr) {
     $get_cash_options = get_option( 'get_cash_option_name' ); // Array of All Options
     
     if ( !isset( $get_cash_options['receiver_paypal'])) {$receiver_paypal = '';} else {$receiver_paypal = $get_cash_options['receiver_paypal'];}

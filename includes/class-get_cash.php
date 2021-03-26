@@ -78,21 +78,21 @@ class get_cash {
 		add_settings_field(
 			'receiver_cash_app', // id
 			'Input Cash App', // title
-			array( $this, 'receiver_cash_app_callback' ), // callback
+			array( $this, 'get_cash_receiver_cash_app_callback' ), // callback
 			'get-cash-admin', // page
 			'get_cash_required_info_section' // section
 		);
 		add_settings_field(
 			'receiver_venmo', // id
 			'Input Venmo ID (usually 15-25 digits long)', // title
-			array( $this, 'receiver_venmo_callback' ), // callback
+			array( $this, 'get_cash_receiver_venmo_callback' ), // callback
 			'get-cash-admin', // page
 			'get_cash_required_info_section' // section
 		);
 		add_settings_field(
 			'receiver_paypal', // id
 			'Input PayPal.me username', // title
-			array( $this, 'receiver_paypal_callback' ), // callback
+			array( $this, 'get_cash_receiver_paypal_callback' ), // callback
 			'get-cash-admin', // page
 			'get_cash_required_info_section' // section
 		);
@@ -110,21 +110,21 @@ class get_cash {
 		add_settings_field(
 			'receiver_no', // id
 			'Input Phone Number', // title
-			array( $this, 'receiver_no_callback' ), // callback
+			array( $this, 'get_cash_receiver_no_callback' ), // callback
 			'get-cash-admin', // page
 			'get_cash_additional_info_section' // section
 		);
 		add_settings_field(
 			'receiver_email', // id
 			'Input Email', // title
-			array( $this, 'receiver_email_callback' ), // callback
+			array( $this, 'get_cash_receiver_email_callback' ), // callback
 			'get-cash-admin', // page
 			'get_cash_additional_info_section' // section
 		);
 		add_settings_field(
 			'receiver_owner', // id
 			'Input Name associated with payments', // title
-			array( $this, 'receiver_owner_callback' ), // callback
+			array( $this, 'get_cash_receiver_owner_callback' ), // callback
 			'get-cash-admin', // page
 			'get_cash_additional_info_section' // section
 		);
@@ -142,21 +142,21 @@ class get_cash {
 		add_settings_field(
 			'donate_button_text', // id
 			'Change Donate Button Text <a style="text-decoration:none" href="https://theafricanboss.com/get-cash/" target="_blank"><sup style="color:red">APPLY CHANGES WITH PRO</sup></a>', // title
-			array( $this, 'donate_button_text_callback' ), // callback
+			array( $this, 'get_cash_donate_button_text_callback' ), // callback
 			'get-cash-admin', // page
 			'get_cash_premium_features_section' // section
 		);
 		add_settings_field(
 			'donate_button_display', // id
 			'Full width Centered On/Off <a style="text-decoration:none" href="https://theafricanboss.com/get-cash/" target="_blank"><sup style="color:red">APPLY CHANGES WITH PRO</sup></a>', // title
-			array( $this, 'donate_button_display_callback' ), // callback
+			array( $this, 'get_cash_donate_button_display_callback' ), // callback
 			'get-cash-admin', // page
 			'get_cash_premium_features_section' // section
 		);
 		add_settings_field(
 			'donate_button_shadow', // id
 			'Shadow On/Off <a style="text-decoration:none" href="https://theafricanboss.com/get-cash/" target="_blank"><sup style="color:red">APPLY CHANGES WITH PRO</sup></a>', // title
-			array( $this, 'donate_button_shadow_callback' ), // callback
+			array( $this, 'get_cash_donate_button_shadow_callback' ), // callback
 			'get-cash-admin', // page
 			'get_cash_premium_features_section' // section
 		);
@@ -210,7 +210,7 @@ class get_cash {
 	/*
 	* Fields callback functions
 	*/
-	public function receiver_cash_app_callback() {
+	public function get_cash_receiver_cash_app_callback() {
 		$get_cash_options = get_option( 'get_cash_option_name' ); // Array of All Options
 		if ( isset( $get_cash_options['receiver_cash_app']) ) { $test = '<a class="link-primary" href="https://cash.me/' . $get_cash_options['receiver_cash_app'] . '" target="_blank">Test</a>'; } else { $test = null; }
 		printf(
@@ -218,7 +218,7 @@ class get_cash {
 			isset( $this->get_cash_options['receiver_cash_app'] ) ? esc_attr( $this->get_cash_options['receiver_cash_app']) : ''
 		);
 	}
-	public function receiver_venmo_callback() {
+	public function get_cash_receiver_venmo_callback() {
 		$get_cash_options = get_option( 'get_cash_option_name' ); // Array of All Options
 		if ( isset( $get_cash_options['receiver_venmo']) ) { $test = '<a class="link-primary" href="' . esc_attr(admin_url('admin.php?page=get_cash_help_menu_page')) . '" data-bs-toggle="tooltip" title="Venmo links only work on a phone with Venmo installed" target="_blank"> Test <img alt="Venmo QR Code" src="https://chart.googleapis.com/chart?cht=qr&chld=L|0&chs=75x75&chl=https://venmo.com/code?user_id='. esc_attr( wp_kses_post( $get_cash_options['receiver_venmo'] ) ). '"></a>'; } else { $test = null; }
 		printf(
@@ -226,7 +226,7 @@ class get_cash {
 			isset( $this->get_cash_options['receiver_venmo'] ) ? esc_attr( $this->get_cash_options['receiver_venmo']) : ''
 		);
 	}
-	public function receiver_paypal_callback() {
+	public function get_cash_receiver_paypal_callback() {
 		$get_cash_options = get_option( 'get_cash_option_name' ); // Array of All Options
 		if ( isset( $get_cash_options['receiver_paypal']) ) { $test = '<a class="link-primary" href="https://paypal.me/' . $get_cash_options['receiver_paypal'] . '" target="_blank">Test</a>'; } else { $test = null; }
 		printf(
@@ -234,39 +234,39 @@ class get_cash {
 			isset( $this->get_cash_options['receiver_paypal'] ) ? esc_attr( $this->get_cash_options['receiver_paypal']) : ''
 		);
 	}
-	public function receiver_no_callback() {
+	public function get_cash_receiver_no_callback() {
 		printf(
 			'<input class="gc-text" type="text" name="get_cash_option_name[receiver_no]" id="receiver_no" value="%s">',
 			isset( $this->get_cash_options['receiver_no'] ) ? esc_attr( $this->get_cash_options['receiver_no']) : ''
 		);
 	}
-	public function receiver_owner_callback() {
+	public function get_cash_receiver_owner_callback() {
 		printf(
 			'<input class="gc-text" type="text" name="get_cash_option_name[receiver_owner]" id="receiver_owner" value="%s">',
 			isset( $this->get_cash_options['receiver_owner'] ) ? esc_attr( $this->get_cash_options['receiver_owner']) : ''
 		);
 	}
-	public function receiver_email_callback() {
+	public function get_cash_receiver_email_callback() {
 		printf(
 			'<input class="gc-text" type="text" name="get_cash_option_name[receiver_email]" id="receiver_email" value="%s">',
 			isset( $this->get_cash_options['receiver_email'] ) ? esc_attr( $this->get_cash_options['receiver_email']) : ''
 		);
 	}
 	// PRO Features
-	public function donate_button_text_callback() {
+	public function get_cash_donate_button_text_callback() {
 		printf(
 			'<input disabled class="gc-text" type="text" name="get_cash_option_name[donate_button_text]" id="donate_button_text" value="%s">',
 			isset( $this->get_cash_options['donate_button_text'] ) ? esc_attr( $this->get_cash_options['donate_button_text']) : ''
 		);
 	}
-	public function donate_button_display_callback() {
+	public function get_cash_donate_button_display_callback() {
 		printf(
 			'<input disabled class="gc-checkbox" type="checkbox" name="get_cash_option_name[donate_button_display]" id="donate_button_display" value="donate_button_display" %s>' .
 			'<label for="donate_button_display"> Enable / Disable</label>',
 			( isset( $this->get_cash_options['donate_button_display'] ) && $this->get_cash_options['donate_button_display'] === 'donate_button_display' ) ? 'checked' : ''
 		);
 	}
-	public function donate_button_shadow_callback() {
+	public function get_cash_donate_button_shadow_callback() {
 		printf(
 			'<input disabled checked class="gc-checkbox" type="checkbox" name="get_cash_option_name[donate_button_shadow]" id="donate_button_shadow" value="donate_button_shadow" %s>' .
 			'<label for="donate_button_shadow"> Enable / Disable</label>',
