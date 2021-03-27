@@ -1,3 +1,9 @@
-.DS_Store
-*.zip
+svn-local/
 readme.txt
+*.zip
+.DS_Store
+!images/*
+!includes/*
+!languages/*
+!pro/*
+!get-cash.php
