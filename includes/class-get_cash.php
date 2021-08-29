@@ -16,7 +16,7 @@ class get_cash {
 	/**
 	 * Register and enqueue a custom stylesheet in the WordPress admin.
 	 */
-	public function get_cash_admin_css() { 
+	public function get_cash_admin_css() {
 		$currentScreen = get_current_screen();
 		if ($currentScreen->id == 'toplevel_page_get-cash' || $currentScreen->id == 'get-cash_page_get_cash_recommended_menu_page' || $currentScreen->id == 'get-cash_page_get_cash_help_menu_page' ) {
 			wp_register_style( 'bootstrap', GET_CASH_PLUGIN_DIR_URL . 'includes/css/bootstrap.min.css');
@@ -28,75 +28,73 @@ class get_cash {
 
 
 	public function get_cash_menu() {
-		
+
 		$parent_slug = 'get-cash';
 		$capability = 'manage_options';
-		
+
 		add_menu_page( null, 'Get Cash', $capability , $parent_slug, array( $this, 'get_cash_settings_page' ), 'dashicons-money-alt', 20 );
-		// add_submenu_page( $parent_slug , 'Upgrade Get Cash' , '<span style="color:#99FFAA">Go Pro >> </span>' , $capability , 'https://theafricanboss.com/donate' , null, null );
+		add_submenu_page( $parent_slug , 'Upgrade Get Cash' , '<span style="color:#99FFAA">Go Pro >> </span>' , $capability , 'https://theafricanboss.com/get-cash' , null, null );
 		add_submenu_page( $parent_slug , 'Review Get Cash' , 'Review' , $capability , 'https://wordpress.org/support/plugin/get-cash/reviews/?filter=5' , null, null );
-		add_submenu_page( $parent_slug , 'Recommended' , 'Recommended' , $capability , 'get_cash_recommended_menu_page', array( $this, 'get_cash_recommended_menu_page' ) , null );
-		add_submenu_page( $parent_slug , 'Help' , 'Help' , $capability , 'get_cash_help_menu_page' ,  array( $this, 'get_cash_help_menu_page' ) , null );
-		// add_submenu_page( $parent_slug , 'Tutorials' , 'Tutorials' , $capability , 'get_cash_tutorials_menu_page' , array( $this, 'get_cash_tutorials_menu_page' ) , null );
-		// add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $menu_slug, callable $function = '', int $position = null )
-		
+		add_submenu_page( $parent_slug , 'Our Plugins' , '<span style="color:yellow">Free Recommended Plugins</span>' , $capability , admin_url("plugin-install.php?s=theafricanboss&tab=search&type=author") 	, null, null );
+		add_submenu_page( $parent_slug , 'Recommended' , 'Premium recommended plugins' , $capability , 'get_cash_recommended_menu_page', array( $this, 'get_cash_recommended_menu_page' ) , null );
+		// add_submenu_page( $parent_slug , 'Help' , 'Help' , $capability , 'get_cash_help_menu_page' ,  array( $this, 'get_cash_help_menu_page' ) , null );
 	}
-	
+
 	public function get_cash_settings_page() {
 		require_once GET_CASH_PLUGIN_DIR . 'includes/admin/settings.php';
 	}
-	
+
 	public function get_cash_recommended_menu_page() {
 		require_once GET_CASH_PLUGIN_DIR . 'includes/admin/recommended.php';
 	}
-	
+
 	public function get_cash_help_menu_page() {
 		require_once GET_CASH_PLUGIN_DIR . 'includes/admin/help.php';
 	}
-	
+
 	public function get_cash_tutorials_menu_page() {
 		require_once GET_CASH_PLUGIN_DIR . 'includes/admin/tutorials.php';
 	}
-	
+
 	public function get_cash_page_init() {
 		register_setting(
 			'get_cash_option_group', // option_group
 			'get_cash_option_name', // option_name
 			array( $this, 'get_cash_sanitize' ) // sanitize_callback
 		);
-		
+
 		/*
 		* Section Payments info
 		*/
 		add_settings_section(
 			'get_cash_required_info_section', // id
-			'Input Receiver info', // title
+			'Add Receiver info', // title
 			array( $this, 'get_cash_section_info' ), // callback
 			'get-cash-admin' // page
 		);
-		
+
 		add_settings_field(
 			'receiver_cash_app', // id
-			'Input Cash App', // title
+			'Add your Cash App $cashtag (example: our cashtag is <a href="https://cash.app/theafricanboss/1" target="_blank">$theafricanboss</a>)', // title
 			array( $this, 'get_cash_receiver_cash_app_callback' ), // callback
 			'get-cash-admin', // page
 			'get_cash_required_info_section' // section
 		);
 		add_settings_field(
 			'receiver_venmo', // id
-			'Input Venmo ID (usually 15-25 digits long)', // title
+			'Add your venmo username (example: our username is <a href="https://venmo.com/theafricanboss?txn=pay&amount=1&note=Thank you for the plugin" target="_blank">theafricanboss</a>)', // title
 			array( $this, 'get_cash_receiver_venmo_callback' ), // callback
 			'get-cash-admin', // page
 			'get_cash_required_info_section' // section
 		);
 		add_settings_field(
 			'receiver_paypal', // id
-			'Input PayPal.me username', // title
+			'Add your PayPal.me username (example: our username is <a href="https://paypal.me/theafricanboss/1" target="_blank">theafricanboss</a>)', // title
 			array( $this, 'get_cash_receiver_paypal_callback' ), // callback
 			'get-cash-admin', // page
 			'get_cash_required_info_section' // section
 		);
-		
+
 		/*
 		* Section Additional info
 		*/
@@ -106,7 +104,7 @@ class get_cash {
 			array( $this, 'get_cash_section_additional_info' ), // callback
 			'get-cash-admin' // page
 		);
-		
+
 		add_settings_field(
 			'receiver_no', // id
 			'Input Phone Number', // title
@@ -128,7 +126,7 @@ class get_cash {
 			'get-cash-admin', // page
 			'get_cash_additional_info_section' // section
 		);
-		
+
 		/*
 		* Section PRO
 		*/
@@ -138,7 +136,7 @@ class get_cash {
 			array( $this, 'get_cash_section_premium_features' ), // callback
 			'get-cash-admin' // page
 		);
-		
+
 		add_settings_field(
 			'donate_button_text', // id
 			'Change Donate Button Text <a style="text-decoration:none" href="https://theafricanboss.com/get-cash/" target="_blank"><sup style="color:red">APPLY CHANGES WITH PRO</sup></a>', // title
@@ -160,9 +158,9 @@ class get_cash {
 			'get-cash-admin', // page
 			'get_cash_premium_features_section' // section
 		);
-		
+
 	}
-	
+
 	/*
 	* Fields sanitize function
 	*/
@@ -186,7 +184,7 @@ class get_cash {
 		if ( isset( $input['receiver_email'] ) ) {
 			$sanitary_values['receiver_email'] = sanitize_text_field( $input['receiver_email'] );
 		}
-		
+
 		if ( isset( $input['donate_button_text'] ) ) {
 			$sanitary_values['donate_button_text'] = sanitize_text_field( $input['donate_button_text'] );
 		}
@@ -196,7 +194,7 @@ class get_cash {
 		if ( isset( $input['donate_button_display'] ) ) {
 			$sanitary_values['donate_button_display'] = $input['donate_button_display'];
 		}
-		
+
 		return $sanitary_values;
 	}
 
@@ -206,7 +204,7 @@ class get_cash {
 	public function get_cash_section_info() {echo __( '', 'get-cash' );}
 	public function get_cash_section_additional_info() {echo __( '', 'get-cash' );}
 	public function get_cash_section_premium_features() {echo __( '', 'get-cash' );}
-	
+
 	/*
 	* Fields callback functions
 	*/
@@ -220,7 +218,7 @@ class get_cash {
 	}
 	public function get_cash_receiver_venmo_callback() {
 		$get_cash_options = get_option( 'get_cash_option_name' ); // Array of All Options
-		if ( isset( $get_cash_options['receiver_venmo']) ) { $test = '<a class="link-primary" href="' . esc_attr(admin_url('admin.php?page=get_cash_help_menu_page')) . '" data-bs-toggle="tooltip" title="Venmo links only work on a phone with Venmo installed" target="_blank"> Test <img alt="Venmo QR Code" src="https://chart.googleapis.com/chart?cht=qr&chld=L|0&chs=75x75&chl=https://venmo.com/code?user_id='. esc_attr( wp_kses_post( $get_cash_options['receiver_venmo'] ) ). '"></a>'; } else { $test = null; }
+		if ( isset( $get_cash_options['receiver_venmo']) ) { $test = '<a class="link-primary" href="https://venmo.com/'. esc_attr( wp_kses_post( $get_cash_options['receiver_venmo'] ) ). '?txn=pay&amount=0.01&note=Thank you" target="_blank">Test</a>'; } else { $test = null; }
 		printf(
 			'<input class="gc-text" type="text" name="get_cash_option_name[receiver_venmo]" id="receiver_venmo" value="%s">' . $test ,
 			isset( $this->get_cash_options['receiver_venmo'] ) ? esc_attr( $this->get_cash_options['receiver_venmo']) : ''
@@ -273,11 +271,11 @@ class get_cash {
 			( isset( $this->get_cash_options['donate_button_shadow'] ) && $this->get_cash_options['donate_button_shadow'] === 'donate_button_shadow' ) ? 'checked' : ''
 		);
 	}
-	
+
 }
 if ( is_admin() )
 $get_cash = new get_cash();
-/* 
+/*
  * Retrieve values with:
  * $get_cash_options = get_option( 'get_cash_option_name' ); // Array of All Options
  * $receiver_cash_app = $get_cash_options['receiver_cash_app']; // Receiver Cash App

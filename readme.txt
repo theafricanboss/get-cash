@@ -3,8 +3,8 @@ Contributors: theafricanboss
 Donate Link: https://theafricanboss.com
 Tags: tips, donate, donations, cash, cashapp, cash app, finance, payments, money, transfer, receive, send, money transfer, usa, mobile money, momo, woocommerce
 Requires at least: 4.0
-Tested up to: 5.7
-Stable tag: 1.0
+Tested up to: 5.8
+Stable tag: trunk
 Requires PHP: 5.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -13,7 +13,7 @@ Receive funds, tips, donations on WordPress via Cash App, Venmo, PayPal with a b
 
 == Description ==
 
-**Get Cash**
+**We are no longer using the venmo ID. We now support the venmo username. Please change accordingly**
 
 Receive funds, tips, donations on WordPress via Cash App, Venmo, PayPal with a button or QR Code anywhere on your website
 
@@ -70,6 +70,23 @@ Get Cash plugin currently supports Cash App, Venmo, and PayPal
 3. Plugin settings page
 
 == Changelog ==
+
+= 1.1 Aug 29, 2021 =
+
+- Updated venmo test button on settings page to work with Venmo username and not Venmo ID
+- Fixed venmo link - moved from venmo ID to venmo username
+- Removed link to help page for venmo ID
+- Improved wording on settings page instead of input info used add info
+- Updated example shortcodes to include qr, amount and note options
+- Redirect to settings page after activation
+- Improved deactivate free plugins when PRO activated
+Smooth upgrade from free to PRO
+- PRO invitation admin notice when using free plugin
+- Fixed bootstrap CSS enqueued on menu pages
+- Better settings links on plugins page
+- Better installation instructions
+- Added free and paid recommended menus in sidebar with colors
+- Fixed menu buttons in PRO plugin
 
 = 1.0 Mar 1, 2021 =
 
