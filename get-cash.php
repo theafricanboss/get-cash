@@ -5,8 +5,8 @@
  * Description: Receive Cash, Tips, Donations, Funds, Support on WordPress via Cash App, Venmo, PayPal with a button or QR Code anywhere on your website
  * Author: The African Boss
  * Author URI: https://theafricanboss.com
- * Version: 2.0
- * Version Date: August 29, 2021
+ * Version: 2.1
+ * Version Date: Feb 18, 2021
  * Created: 2021
  * Copyright 2021 theafricanboss.com All rights reserved
  */

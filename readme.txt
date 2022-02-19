@@ -3,7 +3,7 @@ Contributors: theafricanboss
 Donate Link: https://theafricanboss.com
 Tags: tips, donate, donations, cash, cashapp, cash app, finance, payments, money, transfer, receive, send, money transfer, usa, mobile money, momo, woocommerce
 Requires at least: 4.0
-Tested up to: 5.8
+Tested up to: 5.9
 Stable tag: trunk
 Requires PHP: 5.0
 License: GPLv3
@@ -71,7 +71,13 @@ Get Cash plugin currently supports Cash App, Venmo, and PayPal
 
 == Changelog ==
 
-= 1.1 Aug 29, 2021 =
+= 2.1 Feb 18, 2021 =
+
+- Updated broken shortcode link
+- Updated help links
+- Updated WordPress compatibility
+
+= 1.1/2.0 Aug 29, 2021 =
 
 - Updated venmo test button on settings page to work with Venmo username and not Venmo ID
 - Fixed venmo link - moved from venmo ID to venmo username
